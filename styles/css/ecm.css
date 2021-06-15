@@ -1,5 +1,9 @@
-.indigo-background {
-    background: linear-gradient(90deg, #c2a0f8 0%, #7528f0 100%, #3D0A91 100%);
+.green-background {
+    background: linear-gradient(90deg, #297E46 100%, #216136 10%, #184B29 50%);
+}
+
+.dark-mode {
+    background-color: #303030;
 }
 
 html {
@@ -30,4 +34,29 @@ html {
 
 .width-fix {
     width: 800px;
+}
+
+.search-btn{
+    color:#8F222D;
+    border-color:#8F222D;
+}
+.search-btn:hover{
+    color:#fff;
+    background-color:#8F222D;
+    border-color:#8F222D;
+}
+.btn-check:focus+.search-btn,.search-btn:focus{
+    box-shadow:0 0 0 .25rem rgba(220,53,69,.5)
+}
+.btn-check:active+.search-btn,.btn-check:checked+.search-btn,.search-btn.active,.search-btn.dropdown-toggle.show,.search-btn:active{
+    color:#fff;
+    background-color:#8F222D;
+    border-color:#8F222D;
+}
+.btn-check:active+.search-btn:focus,.btn-check:checked+.search-btn:focus,.search-btn.active:focus,.search-btn.dropdown-toggle.show:focus,.search-btn:active:focus {
+    box-shadow:0 0 0 .25rem rgba(220,53,69,.5)
+}
+.search-btn.disabled,.search-btn:disabled{
+    color:#8F222D;
+    background-color:transparent;
 }
