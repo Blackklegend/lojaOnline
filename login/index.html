@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html class="h-100" lang="pt-br">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"> <!--* Site information -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Login</title>
-        <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../styles/css/bootstrap-utilities.min.css" rel="stylesheet">
-        <link href="../styles/css/ecm.css" rel="stylesheet">
-        <script src="../styles/js/bootstrap.bundle.min.js"></script>
-        <script src="https://kit.fontawesome.com/c53fad1440.js" crossorigin="anonymous"></script>
+        <!--! CSS styling injections -->
+            <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+            <link href="../styles/css/bootstrap-utilities.min.css" rel="stylesheet">
+            <link href="../styles/css/ecm.css" rel="stylesheet">
+        <!--! JS styling injections -->
+            <script src="../styles/js/bootstrap.bundle.min.js"></script>
+            <script src="https://kit.fontawesome.com/c53fad1440.js" crossorigin="anonymous"></script>
     </head>
-    <body class="d-flex flex-column h-100 bg-dark text-dark">
-        <main class="flex-shrink-0">
+    <body class="d-flex flex-column h-100 night-mode text-dark"> <!--? Content -->
+          <main class="flex-shrink-0"> <!--? Navbar start -->
             <nav class="navbar navbar-expand-lg green-background">
                 <div class="container-fluid shadow">
                     <a class="navbar-brand" href="#">logo</a>
@@ -22,25 +24,38 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="../">Início</a>
+                                <a class="nav-link text-dark lequire fw-bold fs-5 lh-lg" aria-current="page" href="../">Início</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
-                        <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./login'">Cadastrar</button>
+                        <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./login'"><i class="fas fa-shopping-cart me-1"></i>Carrinho</button>
                     </div>
                 </div>
-            </nav> 
-            <div id="content" class="container-fluid mt-0 flex-shrink-0 px-0 text-light">
-                <div class="container-sm mt-3 bg-light">
-                    <div class="position-absolute bottom-50 start-50">E-mail<input type="text" class="" placeholder="endereço@dominio.com"></div>
-                    <div class="position-absolute top-50 start-50">Senha<input type="text" class=""></div>
+            </nav> <!--? Navbar end -->
+        <!--! Main content start -->
+            <div id="content" class="container-md mt-0 flex-shrink-0 px-0 text-light row mx-auto mt-4 login-container"> 
+                <div class="shadow-md bg-light text-dark p-4 col-sm-6 d-flex row"> <!--* Login container -->
+                    <div class="d-flex align-self-center row">
+                        <h3 class="container-fluid text-center">E-mail</h3>
+                        <input type="text" class="" placeholder="endereço@dominio.com">
+                    </div>
+                    <div class="d-flex row h-fc">
+                        <h3 class="container-fluid text-center">Senha</h3>
+                        <input type="text" class="h-auto">
+                        <button class="btn btn-group btn-success h-fc w-75 mt-2 shadow-sm">Login</button>
+                    </div> <!--** Login end -->
+                </div>
+                <div class="col-sm-6 bg-light text-dark border-start d-flex justify-content-center"> <!--? Sign up start -->
+                    <h3 class="align-self-center text-center h-fc d-inline-block">Ainda não é cadastrado?</h3>
+                    <button class="btn btn-primary align-self-center fs-2 d-inline-block">Cadastre-se</button>
                 </div>
             </div>
-        </main>  
+          </main> 
+        <!--! Content ends here -->
         <footer class="footer mt-auto py-3 green-background">
             <div class="container text-center">
-                <span class="text-light text-center">Informações da loja.</span>
+                <span class="text-dark text-center">Informações da loja.</span>
             </div>
         </footer>
     </body>

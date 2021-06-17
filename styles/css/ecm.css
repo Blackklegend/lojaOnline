@@ -1,9 +1,5 @@
 .green-background {
-    background: linear-gradient(90deg, #297E46 100%, #216136 10%, #184B29 50%);
-}
-
-.dark-mode {
-    background-color: #303030;
+    background: linear-gradient(90deg, #FF8C40 50%, #cc7033 100%, #b2622c 100%);
 }
 
 html {
@@ -61,3 +57,15 @@ html {
     background-color:transparent;
 }
 
+.login-container {
+    height: 80vh;
+    padding: auto;
+}
+
+.night-mode {
+    background: linear-gradient(120deg, #080f1c 10%, #050A12 40%, #070918 100%)
+}
+
+.h-fc {
+    height: fit-content;
+}
