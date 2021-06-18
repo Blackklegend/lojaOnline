@@ -18,43 +18,34 @@
             <nav class="navbar navbar-expand-lg green-background">
                 <div class="container-fluid shadow">
                     <a class="navbar-brand" href="#">logo</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark lequire fw-bold fs-5 lh-lg" aria-current="page" href="../">Início</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
-                        <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./login'"><i class="fas fa-shopping-cart me-1"></i>Carrinho</button>
+                    <a class="nav-link text-light merriweather fs-5 lh-lg float-start" aria-current="page" href="../">Início</a>
+                    <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 pe-2 float-end">
+                        <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./login'"><i class="fas fa-shopping-cart me-2"></i>Carrinho</button>
                     </div>
                 </div>
             </nav> <!--? Navbar end -->
         <!--! Main content start -->
             <div id="content" class="container-md mt-0 flex-shrink-0 px-0 text-light row mx-auto mt-4 login-container"> 
-                <div class="shadow-md bg-light text-dark p-4 col-sm-6 d-flex row"> <!--* Login container -->
-                    <div class="d-flex align-self-center row">
-                        <h3 class="container-fluid text-center">E-mail</h3>
-                        <input type="text" class="" placeholder="endereço@dominio.com">
+                <div class="shadow-md p-4 col-sm-6 d-flex row mx-auto"> <!--? Login container -->
+                    <div class="d-flex align-self-center mx-auto row">
+                        <h3 class="container-fluid text-center george">E-mail</h3>
+                        <input type="text" class="border-top-0 border-end-0 border-start-0 border-bottom-1 border-white night-mode text-light fs-4" placeholder="endereço@dominio.com">
                     </div>
-                    <div class="d-flex row h-fc">
-                        <h3 class="container-fluid text-center">Senha</h3>
-                        <input type="text" class="h-auto">
-                        <button class="btn btn-group btn-success h-fc w-75 mt-2 shadow-sm">Login</button>
-                    </div> <!--** Login end -->
+                    <div class="d-flex row h-fc mx-auto">
+                        <h3 class="container-fluid text-center george">Senha</h3>
+                        <input type="password" class="border-top-0 border-end-0 border-start-0 border-bottom-1 border-white night-mode text-light fs-4">
+                        <button class="btn btn-success h-fc george fs-2 mt-2 shadow-sm">Login</button>
+                    </div> <!--? Login end -->
                 </div>
-                <div class="col-sm-6 bg-light text-dark border-start d-flex justify-content-center"> <!--? Sign up start -->
-                    <h3 class="align-self-center text-center h-fc d-inline-block">Ainda não é cadastrado?</h3>
-                    <button class="btn btn-primary align-self-center fs-2 d-inline-block">Cadastre-se</button>
+                <div class="col-sm-6 d-flex justify-content-center align-self-center btn-group btn-group-vertical h-fc"> <!--? Sign up start -->
+                    <h3 class="align-self-center text-center h-fc d-inline-block george">Ainda não é cadastrado?</h3>
+                    <button class="mt-1 btn btn-primary fs-2 george rounded-3">Cadastre-se</button>
                 </div>
             </div>
           </main> 
         <!--! Content ends here -->
         <footer class="footer mt-auto py-3 green-background">
-            <div class="container text-center">
+            <div class="container text-center merriweather">
                 <span class="text-dark text-center">Informações da loja.</span>
             </div>
         </footer>
