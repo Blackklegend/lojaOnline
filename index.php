@@ -1,3 +1,14 @@
+<?php 
+  session_start();
+  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    $lgnAds = "location.href='./php/logout.php'";
+    $btnTxt = "Logout";
+  } else {
+    $lgnAds = "location.href='./login'";
+    $btnTxt = "Login";
+  }
+?>
+
 <!DOCTYPE html>
 <html class="h-100" lang="pt-br">
   <head>
@@ -26,7 +37,7 @@
               <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
             </button>
             <!--* navbar items -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="collapse navbar-collapse" id="navbarSupportedContent" action="./produtos/pesquisa.php" method="GET">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="#">Início</a>
@@ -39,26 +50,27 @@
                     Categorias
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Capas</a></li>
-                    <li><a class="dropdown-item" href="#">Películas</a></li>
-                    <li><a class="dropdown-item" href="#">Fones</a></li>
-                    <li><a class="dropdown-item" href="#">Carregadores</a></li>
+                    <li><input type="submit" name="category" value="Capas" class="dropdown-item"></li>
+                    <li><input type="submit" name="category" value="Películas" class="dropdown-item"></li>
+                    <li><input type="submit" name="category" value="Fones" class="dropdown-item"></li>
+                    <li><input type="submit" name="category" value="Carregadores" class="dropdown-item"></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="./produtos/">Todos</a></li>
+                    <li><input type="submit" name="category" value="Todos" class="dropdown-item"></li>
                   </ul>
                 </li>
-              </ul> 
-              <form class="d-flex">
-                <input class="form-control me-2 border-0 louis" type="search" placeholder="Pesquisar" aria-label="Search">
-                <button class="btn search-btn fw-light text-light" type="submit"><i class="fas fa-search"></i></button> 
-              </form>
-            </div>
+              </ul>
+              <div class="text-center"> 
+                <form class="d-flex" action="./produtos/pesquisa.php" method="GET">
+                  <input class="form-control me-2 border-0 louis d-inline w-75" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" type="search" placeholder="Pesquisar" aria-label="Search">
+                  <button class="btn search-btn fw-light text-light" type="submit"><i class="fas fa-search"></i></button> 
+                </form>
+              </div>
+            </form>
             <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
               <button class="btn btn-primary" onclick="location.href='./carrinho'"><i class="fas fa-shopping-cart"></i></button>
-              <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./php/logout.php'">Login</button>
+              <button class="btn btn-primary float-end george fw-bolder" onclick="<?php echo $lgnAds?>"><?php echo $btnTxt ?></button>
             </div> 
           </div>
-          
         </nav> 
       <div id="content" class="container-fluid mt-0 flex-shrink-0 px-0"> <!--* Start of the content section -->
         <div id="carouselExampleCaptions" class="carousel slide px-0" data-bs-ride="carousel"> <!--? Carousel section -->
@@ -109,6 +121,22 @@
               <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
               <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
               <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>              
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>              
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
               <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
             </div>
           </div>
@@ -116,7 +144,7 @@
       </div>
       </main>  <!--* Content end, footer start -->
       <footer class="footer mt-auto py-3 green-background">
-        <div class="container text-center">
+        <div class="container text-center merriweather">
           <span class="text-light text-center">Informações da loja.</span>
         </div>
       </footer>

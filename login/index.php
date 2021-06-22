@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <meta charset="utf-8"> <!--* Site information -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastro</title>
+        <title>Login</title>
         <!--! CSS styling injections -->
             <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
             <link href="../styles/css/bootstrap-utilities.min.css" rel="stylesheet">
@@ -124,15 +124,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="row login-container">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="shadow-md p-4 col-sm-6 d-flex row mx-auto"> <!--? Login container -->
                         <div class="d-flex align-self-center mx-auto row form-group">
-                            <h3 class="container-fluid text-center george">E-mail</h3>
+                            <h3 class="container-fluid px-0 george text-left">E-mail</h3>
                             <input type="text" name="username" class="border-top-0 border-end-0 border-start-0 border-bottom-1 border-white night-mode text-light fs-4 <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="endereço@dominio.com">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>
                         <div class="d-flex row h-fc mx-auto form-group">
-                            <h3 class="container-fluid text-center george">Senha</h3>
+                            <h3 class="container-fluid px-0 george text-left">Senha</h3>
                             <input type="password" name="password" class="border-top-0 border-end-0 border-start-0 border-bottom-1 border-white night-mode text-light fs-4 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                            <input type="submit" class="btn btn-success h-fc george fs-2 mt-2 shadow-sm" value="Login">
+                            <input type="submit" class="btn btn-success h-fc george fs-2 mt-2 shadow-sm w-50 m-auto mt-2" value="Login">
                         </div> <!--? Login end -->
                     </form>
                     <div class="col-sm-6 d-flex justify-content-center align-self-center btn-group btn-group-vertical h-fc"> <!--? Sign up start -->
