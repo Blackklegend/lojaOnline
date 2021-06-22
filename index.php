@@ -13,11 +13,6 @@
         <!--** Style JS scripts -->
           <script src="./styles/js/bootstrap.bundle.min.js"></script>
           <script src="https://kit.fontawesome.com/c53fad1440.js" crossorigin="anonymous"></script>
-        <!--** Functionality scripts -->
-          <script src="./js/dynamicListing.js"></script> 
-          <?php 
-            include("./php/conexao.php")
-          ?>
     </head>
     
     <body class="d-flex flex-column h-100 night-mode text-dark">
@@ -59,8 +54,8 @@
               </form>
             </div>
             <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
-              <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
-              <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./login'">Login</button>
+              <button class="btn btn-primary" onclick="location.href='./carrinho'"><i class="fas fa-shopping-cart"></i></button>
+              <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='./php/logout.php'">Login</button>
             </div> 
           </div>
           

@@ -6,69 +6,85 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Loja Virtual</title>
       <!--* Injecting CSS -->
-        <link href="./styles/css/bootstrap.min.css" rel="stylesheet">
-        <link href="./styles/css/bootstrap-utilities.min.css" rel="stylesheet">
-        <link href="./styles/css/ecm.css" rel="stylesheet">
+        <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../styles/css/bootstrap-utilities.min.css" rel="stylesheet">
+        <link href="../styles/css/ecm.css" rel="stylesheet">
       <!--* Injecting JS scripts-->
         <!--** Style JS scripts -->
-          <script src="./styles/js/bootstrap.bundle.min.js"></script>
+          <script src="../styles/js/bootstrap.bundle.min.js"></script>
           <script src="https://kit.fontawesome.com/c53fad1440.js" crossorigin="anonymous"></script>
-        <!--** Functionality scripts -->
-          <script src="./js/dynamicListing.js"></script> 
     </head>
-        <div>
-    		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm">
-                    
-                    <!-- Logo -->
-                    <a href="../index.html" class="navbar-brand">
-                        <img src="../img/Crab.png" width="100" height="50">					
-                    </a>
-                    
-                    <a href="../index.html" class="navbar-brand">
-                        <h1>We<font>Crab</font></h1>					
-                    </a>
-                    
-                    <nav class="navbar navbar-expand-lg my-1 mr-md-auto">
-                        <div class="navbar-collapse"> <!-- nav principal -->
-                            <ol class="navbar-nav align-content-center"> <!-- lista não ordenada -->
-                                  <li class="nav-item">
-                                    <a href="../index.html" class="nav-link itens av-link mr-md-4">Home</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a href="../pages/produtos.html" class="nav-link itens av-link mr-md-4">Produtos</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a href="../pages/quemsomos.html" class="nav-link itens av-link mr-md-4">Quem somos</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a href="../pages/contatos.html" class="nav-link itens av-link mr-md-4">Contatos</a>
-                                  </li>
-                            </ol> <!-- Fim lista não ordenada -->
-                        </div> <!-- Fim nav principal -->
-                    </nav> <!-- Fim Barra de Navegação -->
-                    
-                    <nav class="my-1 mr-md-2">
-                        <div class="navbar-collapse">
-                            <ol class="navbar-nav left">
-                                  <li class="nav-item"> <!--hidden-->
-                                    <a href="../pages/login.html" class="bttn-logar">Entrar</a>
-                                    <a href="../pages/cadastro.html" class="bttn">Cadastro</a>
-                                  </li>
-                            </ol>
-                        </div>
-                    </nav>
-                </div>
+    <body class="d-flex flex-column h-100 night-mode">
+      <!--! Declaration of the main content -->
+      <main class="flex-shrink-0">
+        <!--* Navbar -->
+        <nav class="navbar navbar-expand-lg green-background">
+          <div class="container-fluid shadow">
+            <a class="navbar-brand" href="#">logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <!--* navbar items -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="../">Início</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light george fs-5 lh-lg" href="./produtos">Produtos</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light george fs-5 lh-lg" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorias
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Capas</a></li>
+                    <li><a class="dropdown-item" href="#">Películas</a></li>
+                    <li><a class="dropdown-item" href="#">Fones</a></li>
+                    <li><a class="dropdown-item" href="#">Carregadores</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="./produtos/">Todos</a></li>
+                  </ul>
+                </li>
+              </ul> <!--* Navbar items end -->
+              <form class="d-flex"> <!--* Search and login section -->
+                <input class="form-control me-2 border-0 louis" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn search-btn fw-light text-light" type="submit"><i class="fas fa-search"></i></button> 
+              </form>
             </div>
-		</header>
-		<body>
-	        <div class="container">
-				<div class="crab-center">
-					<h2><font style="color: black;">Carrinho</font></h2>
-				</div>
-    <footer class="footer mt-auto py-3 green-background">
-      <div class="container text-center">
-        <span class="text-light text-center">Informações da loja.</span>
-      </div>
-    </footer>
+            <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
+              <button class="btn btn-primary float-end george fw-bolder" onclick="location.href ='../login'">Login</button>
+            </div> 
+          </div>
+        </nav> <!--! Navbar end, content start -->
+        <div class="container-sm mt-5 p-3">
+          <h1 class="text-light george fw-light border-bottom border-light w-75">Carrinho</h1>
+          <div class="my-3">&nbsp;</div> <!--? Espaçador -->
+          <div class="container-sm row mt-3"> <!--* Itens do carrinho -->
+            <div class="col-sm-9 ">
+              <div class="my-3">&nbsp;</div> <!--? Espaçador -->
+              <div class="my-2">&nbsp;</div> <!--? Espaçador -->
+              <div class="shadow-lg" id="cart"> <!--! Itens do carrinho -->
+                <p class="george pt-4 fs-5 cart-container text-center">Nenhum produto no carrinho</p>
+               </div> <!--! Fim dos itens do carrinho -->
+              <div class="my-3">&nbsp;</div> <!--? Espaçador -->
+            </div>
+            <div class="col-sm-3"> <!--* Fim dos itens; Começo Finalização -->
+              <h3 class="george text-light container-fluid pe-0 float-end text-end">Resumo</h3>
+              <div class="ms-3 border-bottom border-light p-0 pt-4 text-white-50">
+                <h5 class="float-start me-3">Total: </h5><h5 class="float-end">R$ 0</h5>
+                <h6>&nbsp;</h6>
+              </div>
+              <div class="">&nbsp;</div> <!--? Espaçador -->
+              <button class="ms-3 w-fix-chromium w-fix-firefox btn btn-outline-secondary float-end container-fluid george fs-5 fw-bold text-light">Comprar</button> 
+            </div>
+          </div>
+        </div>
+      </main> <!--! Fim do conteúdo -->
+      <footer class="footer mt-auto py-3 green-background">
+        <div class="container text-center">
+          <span class="text-light text-center">Informações da loja.</span>
+        </div>
+      </footer>
   </body>
 </html> 
