@@ -1,4 +1,5 @@
 <?php 
+  include('./php/config.php');
   session_start();
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $lgnAds = "location.href='./php/logout.php'";
@@ -114,30 +115,21 @@
         <div class="container-sm mt-3"> <!--? Products starts here -->
           <div class="mx-0 row h-100 px-0">
             <div class="col-sm-12 row my-2">
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>              
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>              
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
-              <div class="col-sm-2 p-0 ps-4"><img class="w-100" src="http://placehold.it/200?text=produto"><div class="fs-5 fw-bold text-success text-center">Preço produto</div></div>
+              <?php 
+                $ctsql = "SELECT * FROM produtos";
+                $ser=$link->query($ctsql);
+                while($row=$ser->fetch_assoc()){
+                  echo '
+                  <div class="col-sm-2 p-0 ps-4">
+                    <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
+                    <div class="fs-5 fw-bold text-success text-center">
+                      <a href="#" class="text-decoration-none">
+                        '.$row['preco'].$row['nome'].'
+                      </a>
+                    </div>
+                  </div>';
+                }
+              ?>
             </div>
           </div>
         </div>

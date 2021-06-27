@@ -1,4 +1,5 @@
 <?php 
+  include('../php/config.php');
   session_start();
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $lgnAds = "location.href='./php/logout.php'";
@@ -80,12 +81,11 @@
                           <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
                           <div class="fs-5 fw-bold text-success text-center">
                             <a href="#" class="text-decoration-none">
-                              '.$row['preco'].'
+                              '.$row['preco'].$row['nome'].'
                             </a>
                           </div>
                         </div>';
                         }
-                    
                   ?>
                 </div>
               </div>
