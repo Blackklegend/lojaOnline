@@ -71,21 +71,28 @@
                 </div>
                 <div class="col-sm-10 row my-2">
                   <?php 
-                    include('../php/config.php');
                     $category=$_GET['category'];
-                    $ctsql = "SELECT * FROM produtos WHERE categoria LIKE '%$category%'";
+                    if($category == 'Todos') {
+                      $ctsql = "SELECT * FROM produtos";
+                    } else {
+                      $ctsql = "SELECT * FROM produtos WHERE categoria LIKE '%$category%'";
+                    }
                     $ser=$link->query($ctsql);
-                    while($row=$ser->fetch_assoc()){
-                        echo '
-                        <div class="col-sm-3 p-0 ps-4">
-                          <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
-                          <div class="fs-5 fw-bold text-success text-center">
-                            <a href="#" class="text-decoration-none">
-                              '.$row['preco'].$row['nome'].'
-                            </a>
-                          </div>
-                        </div>';
+                    if($ser->num_rows < 1) {
+                      echo '<h1 class="text-light">Não há produtos para mostrar</h1>';
+                    } else {
+                        while($row=$ser->fetch_assoc()){
+                          echo '
+                          <div class="col-sm-3 p-0 ps-4">
+                            <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
+                            <div class="fs-5 fw-bold text-success text-center">
+                              <a href="#" class="text-decoration-none text-light">
+                                '.$row['nome'].'<p class="text-primary">R$'.$row['preco'].'</p>
+                              </a>
+                            </div>
+                          </div>';
                         }
+                      }
                   ?>
                 </div>
               </div>

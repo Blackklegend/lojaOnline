@@ -58,33 +58,23 @@
       <div id="content" class="container-fluid mt-0 flex-shrink-0 px-0">
           <div class="container-sm mt-3">
             <div class="mx-0 row h-100 px-0">
-              <div class="col-sm-2 text-light" id="filtros">
-                <form class="form">
-                  <ul class="">
-                    <li class="">
-                      <input type="checkbox">
-                      <label class="">Filtro 1</label>
-                    </li>
-                  </ul>
-                </form>
-                </div>
-              <div class="col-sm-10 row my-2">
+              <div class="col-sm-12 row my-2">
               <?php
                 include('../php/config.php');
                 $search_value=$_GET["search"];
                   $sql="SELECT * FROM produtos WHERE nome LIKE '%$search_value%'";
                   $res=$link->query($sql);
                         while($row=$res->fetch_assoc()){
-                            echo '
+                          echo '
                             <div class="col-sm-3 p-0 ps-4">
                               <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
                               <div class="fs-5 fw-bold text-success text-center">
-                                <a href="#" class="text-decoration-none">
-                                  '.$row['preco'].'
+                                <a href="#" class="text-decoration-none text-light">
+                                  '.$row['nome'].'<p class="text-primary">R$'.$row['preco'].'</p>
                                 </a>
                               </div>
                             </div>';
-                            }
+                          }
                 ?>
                 </div>
               </div>

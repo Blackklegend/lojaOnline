@@ -38,7 +38,7 @@
               <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
             </button>
             <!--* navbar items -->
-            <form class="collapse navbar-collapse" id="navbarSupportedContent" action="./produtos/pesquisa.php" method="GET">
+            <form class="collapse navbar-collapse" id="navbarSupportedContent" action="./produtos/index.php" method="GET">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="#">Início</a>
@@ -59,14 +59,13 @@
                     <li><input type="submit" name="category" value="Todos" class="dropdown-item"></li>
                   </ul>
                 </li>
-              </ul>
+              </ul> </form>
               <div class="text-center"> 
                 <form class="d-flex" action="./produtos/pesquisa.php" method="GET">
                   <input class="form-control me-2 border-0 louis d-inline w-75" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" type="search" placeholder="Pesquisar" aria-label="Search">
                   <button class="btn search-btn fw-light text-light" type="submit"><i class="fas fa-search"></i></button> 
                 </form>
               </div>
-            </form>
             <div class="col-md-1 ms-1 btn-group mt-n1 mb-2 pt-2 container-fluid pe-2">
               <button class="btn btn-primary" onclick="location.href='./carrinho'"><i class="fas fa-shopping-cart"></i></button>
               <button class="btn btn-primary float-end george fw-bolder" onclick="<?php echo $lgnAds?>"><?php echo $btnTxt ?></button>
@@ -123,8 +122,8 @@
                   <div class="col-sm-2 p-0 ps-4">
                     <a href="#"><img class="w-100" src="'.$row['imagemNome'].'"></a>
                     <div class="fs-5 fw-bold text-success text-center">
-                      <a href="#" class="text-decoration-none">
-                        '.$row['preco'].$row['nome'].'
+                      <a href="#" class="text-decoration-none text-light">
+                        '.$row['nome'].'<p class="text-primary">R$'.$row['preco'].'</p>
                       </a>
                     </div>
                   </div>';
