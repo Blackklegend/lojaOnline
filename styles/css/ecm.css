@@ -24,7 +24,7 @@ html {
 }
 
 .green-background {
-    background: linear-gradient(240deg, #FF8C40 50%, #cc7033 100%, #b2622c 100%);
+    background: linear-gradient(45deg, deeppink, orange);
 }
 
 .merriweather {

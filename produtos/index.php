@@ -59,16 +59,6 @@
       <div id="content" class="container-fluid mt-0 flex-shrink-0 px-0">
           <div class="container-sm mt-3">
             <div class="mx-0 row h-100 px-0">
-              <div class="col-sm-2 text-light" id="filtros">
-                <form class="form">
-                  <ul class="">
-                    <li class="">
-                      <input type="checkbox">
-                      <label class="">Filtro 1</label>
-                    </li>
-                  </ul>
-                </form>
-                </div>
                 <div class="col-sm-10 row my-2">
                   <?php 
                     $category=$_GET['category'];
