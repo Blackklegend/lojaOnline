@@ -73,10 +73,6 @@ html {
     padding: auto;
 }
 
-.night-mode {
-    background-color: #0A1325;
-}
-
 .h-fc {
     height: min-content;
 }
@@ -126,4 +122,11 @@ html {
 
 .mb-fix {
     margin-bottom: -5px;
+}
+
+@media screen and (max-width: 991px) {
+    .btn-fix {
+        flex: 0 0 auto;
+        width: 98.999%;
+    }
 }

@@ -8,6 +8,14 @@
     $lgnAds = "location.href='./login'";
     $btnTxt = "Login";
   }
+
+  $id=$_GET["produto"];
+  $request_method = strtoupper(getenv('REQUEST_METHOD'));
+  if($request_method == 'POST'){
+    session_start();
+    array_push($_SESSION["cart"], $id);
+    header("location: ./carrinho");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +50,10 @@
             <form class="collapse navbar-collapse" id="navbarSupportedContent" action="./produtos/index.php" method="GET">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="#">Início</a>
+                  <a class="nav-link text-light george fs-5 lh-lg" aria-current="page" href="./index.php">Início</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light george fs-5 lh-lg" href="../produtos?category=Todos">Produtos</a>
+                  <a class="nav-link text-light george fs-5 lh-lg" href="./produtos">Produtos</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-light george fs-5 lh-lg" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,60 +88,47 @@
             </div> 
           </div>
         </nav> 
-      <div id="content" class="container-fluid mt-0 flex-shrink-0 px-0"> <!--* Start of the content section -->
-        <div id="carouselExampleCaptions" class="carousel slide px-0" data-bs-ride="carousel"> <!--? Carousel section -->
-          <div class="carousel-indicators"> <!--? Carousel content -->
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active carousel-item-start">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" src="./assets/banner1.png" preserveAspectRatio="xMidYMid slice" focusable="false">
-            </div>
-            <div class="carousel-item carousel-item-next carousel-item-start">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" src="./assets/banner2.png" preserveAspectRatio="xMidYMid slice" focusable="false">
-            </div>
-            <div class="carousel-item">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" src="./assets/banner3.png" preserveAspectRatio="xMidYMid slice" focusable="false">
-            </div>
-          </div> <!--? Carrossel Content end, carousel buttons start -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div> <!--? Carrossel ends here -->
-        <div class="container-sm mt-3"> <!--? Products starts here -->
-          <div class="mx-0 row h-100 px-0">
-            <div class="col-sm-12 row my-2">
-              <?php 
-                $ctsql = "SELECT * FROM produtos";
+        <div id="content" class="container-fluid mt-0 flex-shrink-0">
+          <div class="container mt-3">
+            <div class="border row mb-5">
+            <?php 
+                $id=$_GET["produto"];
+                $ctsql = "SELECT * FROM produtos WHERE ID = '$id'";
                 $ser=$link->query($ctsql);
                 while($row=$ser->fetch_assoc()){
                   echo '
-                  <div class="col-sm-2 p-0 ps-4">
-                    <a href="./produto.php?produto='.$row['ID'].'"><img class="w-100" src="'.$row['imagePath'].'"></a>
-                    <div class="fs-5 fw-bold text-success text-center">
-                      <a href="#" class="text-decoration-none text-dark">
-                        '.$row['nome'].'<p class="text-primary">R$'.$row['preco'].'</p>
-                      </a>
+                    <div class="col-md-6 text-center">
+                      <img src="'.$row['imagePath'].'" class="w-75">
                     </div>
-                  </div>';
-                }
-              ?>
-            </div>
+                
+                    <div class="row col-md-6">
+                      <div class="col-md-12 mt-2">
+                        <div class="fw-bold fs-2 mt-3 ms-3">'.$row['nome'].'</div>
+                      </div>
+                      <div class="col-lg-12 mx-3 mt-3 fs-4">
+                        R$ '.$row['preco'].'
+                      </div>
+                      <div class="col-md-12 mt-2"></div>
+                      <form method="post">
+                        <input type="submit" Value="Comprar"class="btn btn-outline-warning float-end ms-3 fs-4 text-dark george fw-bolder w-100">
+                      </form>
+                      <div class="col-md-12 mt-2"></div><div class="col-md-12 mt-2"></div>
+                    </div>
+                  </div>
+                  <div class="border row mb-5">
+                    <h1 class="fs-3 fw-bold louis">Descrição</h1>
+                    <h5 class="george ps-4 mt-2">'.$row['descricao'].'</h5>
+                  </div>
+                  ';
+              }
+            ?>
           </div>
         </div>
+    </main>  
+    <footer class="footer mt-auto py-3 green-background">
+      <div class="container text-center">
+        <span class="text-light text-center merriweather">Informações da loja.</span>
       </div>
-      </main>  <!--* Content end, footer start -->
-      <footer class="footer mt-auto py-3 green-background">
-        <div class="container text-center merriweather">
-          <span class="text-light text-center">Informações da loja.</span>
-        </div>
-      </footer>
-    </body>
+    </footer>
+  </body>
 </html>
