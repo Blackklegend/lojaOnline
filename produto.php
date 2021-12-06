@@ -1,6 +1,6 @@
 <?php 
   include('./php/config.php');
-  session_start();
+
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $lgnAds = "location.href='./php/logout.php'";
     $btnTxt = "Logout";
@@ -8,12 +8,16 @@
     $lgnAds = "location.href='./login'";
     $btnTxt = "Login";
   }
-
+  
   $id=$_GET["produto"];
+  
   $request_method = strtoupper(getenv('REQUEST_METHOD'));
+  
+  if(empty($_SESSION['cart'])) 
+    $_SESSION['cart'] = array();
+  
   if($request_method == 'POST'){
-    session_start();
-    array_push($_SESSION["cart"], $id);
+    array_push($_SESSION['cart'], $id);
     header("location: ./carrinho");
   }
 ?>
@@ -110,7 +114,7 @@
                       </div>
                       <div class="col-md-12 mt-2"></div>
                       <form method="post">
-                        <input type="submit" Value="Comprar"class="btn btn-outline-warning float-end ms-3 fs-4 text-dark george fw-bolder w-100">
+                        <input type="submit" Value="Comprar" class="btn btn-outline-warning float-end ms-3 fs-4 text-dark george fw-bolder w-100">
                       </form>
                       <div class="col-md-12 mt-2"></div><div class="col-md-12 mt-2"></div>
                     </div>
