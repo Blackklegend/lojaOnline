@@ -1,6 +1,6 @@
 <?php 
   include('./php/config.php');
-  session_start();
+
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $lgnAds = "location.href='./php/logout.php'";
     $btnTxt = "Logout";
@@ -114,6 +114,7 @@
                 $ctsql = "SELECT * FROM produtos";
                 $ser=$link->query($ctsql);
                 while($row=$ser->fetch_assoc()){
+                  $limiter = 0;
                   echo '
                   <div class="col-sm-2 p-0 ps-4">
                     <a href="./produto.php?produto='.$row['ID'].'"><img class="w-100" src="'.$row['imagePath'].'"></a>
@@ -123,6 +124,9 @@
                       </a>
                     </div>
                   </div>';
+                  $limiter++;
+                  if($limiter == 30)
+                    break 1;
                 }
               ?>
             </div>

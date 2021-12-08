@@ -1,6 +1,6 @@
 <?php 
   include('../php/config.php');
-  session_start();
+
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $lgnAds = "location.href='../php/logout.php'";
     $btnTxt = "Logout";
@@ -9,6 +9,15 @@
     $btnTxt = "Login";
   }
   $total = 0;
+
+  $request_method = strtoupper(getenv('REQUEST_METHOD'));
+  
+  if($request_method == 'POST'){
+      $toppop = $_POST['toppop'];
+      $toPop = array_search($toppop, $_SESSION['cart']);
+      if(isset($toPop))
+        unset($_SESSION['cart'][$toPop]);
+  }
 ?>
 <!DOCTYPE html>
 <html class="h-100" lang="pt-br">
@@ -26,6 +35,11 @@
         <!--** Style JS scripts -->
           <script src="../assets/js/bootstrap.bundle.min.js"></script>
           <script src="https://kit.fontawesome.com/c53fad1440.js" crossorigin="anonymous"></script>
+          <script>
+            function submit() {
+              $("form").submit();
+            }
+          </script>
     </head>
     
     <body class="d-flex flex-column h-100 text-dark">
@@ -34,7 +48,7 @@
         <!--* Navbar -->
         <nav class="navbar navbar-expand-lg green-background">
           <div class="container-fluid shadow">
-            <a class="navbar-brand" href="#"><img src="../assets/favicon.png" style="max-width: 50px; border-radius: 10px" class="ms-3"></a>
+            <a class="navbar-brand" href="../"><img src="../assets/favicon.png" style="max-width: 50px; border-radius: 10px" class="ms-3"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
             </button>
@@ -62,7 +76,7 @@
                 </li>
               </ul> 
             </form>
-            <form class="ms-1 btn-group container-fluid" action="./produtos/pesquisa.php" method="GET">
+            <form class="ms-1 btn-group container-fluid" action="../produtos/pesquisa.php" method="GET">
               <input 
                 class="form-control border-0 louis d-inline rounded-0 rounded-start " 
                 name="search" 
@@ -97,16 +111,24 @@
                       $ser=$link->query($ctsql);
                       while($row=$ser->fetch_assoc()){
                         echo '
-                          <div class="row py-3">
+                          <div class="row p-3">
                             <img class="col-sm-2" src="'.$row['imagePath'].'">
-                            <p class="d-inline louis fs-4 col-sm-8 mt-3 fw-bold">'.$row['nome'].'</p>
-                            <p class="d-inline louis fs-5 col-sm-2 mt-5">R$ '.$row['preco'].'</p>
+                            <a class="d-inline col-sm-7 text-decoration-none" href="../produto.php?produto='.$row['ID'].'">
+                              <p class="d-inline louis fs-4 mt-3 fw-bold">'.$row['nome'].'</p>
+                            </a>
+                            <div class="d-inline louis fs-5 col-sm-3 mt-5">
+                              <form method="post" class="d-inline" onclick="submit()">
+                                <i class="fas fa-minus-circle"></i>
+                                <input type="hidden" name=toppop value='.$row['ID'].'>
+                              </form>
+                              <p class="d-inline ps-5">R$ '.$row['preco'].'</p>
+                            </div>
                           </div>';
                       }
                     }
                   }
                 ?>
-               </div> <!--! Fim dos itens do carrinho -->
+                </div> <!--! Fim dos itens do carrinho -->
               <div class="my-3">&nbsp;</div> <!--? Espaçador -->
             </div>
             <div class="col-sm-3"> <!--* Fim dos itens; Começo Finalização -->
@@ -135,7 +157,7 @@
       </main> <!--! Fim do conteúdo -->
       <footer class="footer mt-auto py-3 green-background">
         <div class="container text-center">
-          <span class="text-dark text-center">Informações da loja.</span>
+          <span class="text-light text-center">Informações da loja.</span>
         </div>
       </footer>
   </body>
